@@ -32,7 +32,7 @@ int auth()//autheticator function
     }
     else
     {
-        cout<<"Passowrd Was Incorrect.Try Again!";
+        cout<<"Passowrd Was Incorrect.Try Again!"<<endl;
         return 0;
     }
 }
@@ -72,7 +72,7 @@ int  main()
         default:
         {
             cout<<"username and password was incorrect"<<endl;
-            cout<<"please Try again";
+            cout<<"please Try again"<<endl;
             goto start;
         }
     }
