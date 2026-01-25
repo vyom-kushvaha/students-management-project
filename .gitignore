@@ -1,7 +1,7 @@
 # Prerequisites
 *.d
 tempCodeRunnerFile.cpp
-
+../include/student.h
 # Compiled Object files
 *.slo
 *.lo
