@@ -52,4 +52,18 @@ void student :: stufunctions()
     {
         cout<<"YOUR ATTENDANCE:"<<ac<<"/"<<tc<<endl;
     }
+    void student::markPresent()
+    {
+        ac++;
+        tc++;
+    }
+
+    void student::markAbsent()
+    {
+        tc++;
+    }
+    int student::getid()
+    {
+        return id;
+    }
 

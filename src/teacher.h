@@ -8,9 +8,9 @@ class teacher{
     private:
     
     public:
-    void markAttendance();
+    void markAttendance(vector<student>& students);
     void enterMarks();
-    void tchfunction();
+    void tchfunction(vector<student>& students);
     void teachmenu();
 };
 #endif 

@@ -7,7 +7,7 @@ using namespace std ;
 class student{
     private:
     string name;
-    int id,marks,ac,tc;
+    int id=0,marks=0,ac=0,tc=0;
 
     public:
     void viewdet();
@@ -15,6 +15,9 @@ class student{
     void viewattd();
     void stufunctions();
     void stumenu();
+    void markPresent();
+    void markAbsent();
+    int getid();
 
 };
 
