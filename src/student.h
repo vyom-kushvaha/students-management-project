@@ -19,6 +19,8 @@ class student{
     void markAbsent();
     int getid();
 
+    student();
+
 };
 
 #endif 
