@@ -67,9 +67,3 @@ void student :: stufunctions()
         return id;
     }
 
-    student()
-    {
-        cout<<"Enter Name:";cin>>name;
-        cout<<"Enter ID:";cin>>id;
-    }
-
