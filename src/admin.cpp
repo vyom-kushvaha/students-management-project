@@ -4,7 +4,7 @@
 #include<vector>
 #include "student.h"
 
-using namespace std ;
+using namespace std;
 
 void admin :: adminmenu() {
     cout << "1. Add Student" << endl;
@@ -12,7 +12,7 @@ void admin :: adminmenu() {
     cout << "3. Add Teacher" << endl;
     cout << "4. Logout" << endl;
 }       
-void admin::adminfunctions() {
+void admin::adminfunctions(vector<student>& s) {
     adminmenu();
     int ch;
     cout << "Enter your choice:" << endl;
@@ -20,10 +20,10 @@ void admin::adminfunctions() {
     while (ch != 4) {
         switch (ch) {
             case 1:
-                addstudent();
+                addstudent(s);
                 break;
             case 2:
-                removestudent();
+                removestudent(s);
                 break;
             case 3:
                 addteacher();
@@ -39,8 +39,8 @@ void admin::adminfunctions() {
         cin>>ch;
     }
 }
-void admin::addstudent() {
+void admin::addstudent(vector<student>& s) {
     cout << "Adding a new student..." << endl;
-    students.push_back(student());
+    s.push_back(student());
     cout << "Student added successfully." << endl;  
 }

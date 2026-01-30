@@ -2,17 +2,18 @@
 #define ADMIN_H
 
 #include<string>
+#include<vector>
 using namespace std ;
 
-class student{
+class admin{
     private:
     
 
     public:
     void adminmenu();
-    void adminfunctions();
-    void addstudent();
-    void removestudent();
+    void adminfunctions(vector<student>& s);
+    void addstudent(vector<student>& s);
+    void removestudent(vector<student>& s);
     void addteacher();
     
 };

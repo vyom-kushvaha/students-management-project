@@ -1,8 +1,15 @@
 #include<iostream>
+#include<vector>
 #include "student.h"
+#include<string>
 
 using namespace std;
 
+student::student(int i,string tempname)
+{
+    id=i;
+    name= tempname;
+}
 void student :: stumenu()
     {
         cout<<"1. View Attendance"<<endl;

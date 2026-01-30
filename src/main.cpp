@@ -4,30 +4,31 @@
 #include<string>
 #include "teacher.h"
 #include<vector>
-using namespace std;
+#include "admin.h"
 
+using namespace std;
 
 
 
 int  main()
 {   
-    vector<student> students;
-    student s1, s2;
-students.push_back(s1);
-students.push_back(s2);
+    int role;
+    vector<student> s;
+    student s2(int k,string name2);
 
     
     int choice= log :: logincall();
 
    while(choice!=2)
     {
-        switch(log::auth())
+        role=log::auth();
+        switch(role)
         {
          case 1:
            { 
             cout<<"login succesful"<<endl;
-            student s;
-            s.stufunctions();
+            student s1(00,"temp");
+            s1.stufunctions();
            }
             break;
 
@@ -35,13 +36,14 @@ students.push_back(s2);
             {
             cout<<"login succesful"<<endl;
             teacher t;
-            t.tchfunction(students);
+            t.tchfunction(s);
           }
             break;
         case 3:
             {
             cout<<"login succesful";
-           // void adminmenu();
+            admin a;
+            a.adminfunctions(s);
             }
         
             break;

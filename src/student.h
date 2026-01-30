@@ -2,6 +2,7 @@
 #define STUDENT_H
 
 #include<string>
+#include<vector>
 using namespace std ;
 
 class student{
@@ -18,6 +19,8 @@ class student{
     void markPresent();
     void markAbsent();
     int getid();
+
+    student(int id, string name);
 
 };
 
