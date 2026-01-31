@@ -26,9 +26,9 @@ int  main()
         {
          case 1:
            { 
-            cout<<"login succesful"<<endl;
-            student s1(00,"temp");
-            s1.stufunctions();
+               student s1(00,"temp");
+               s1.stufunctions();
+               cout<<"login succesful"<<endl;
            }
             break;
 

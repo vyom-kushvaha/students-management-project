@@ -41,6 +41,6 @@ void admin::adminfunctions(vector<student>& s) {
 }
 void admin::addstudent(vector<student>& s) {
     cout << "Adding a new student..." << endl;
-    s.push_back(student());
+    s.push_back(studnt());
     cout << "Student added successfully." << endl;  
 }
