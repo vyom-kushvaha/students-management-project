@@ -10,6 +10,11 @@ student::student(int i,string tempname)
     id=i;
     name= tempname;
 }
+student::student()
+{
+    id=0;
+    name="null";
+}
 void student :: stumenu()
     {
         cout<<"1. View Attendance"<<endl;

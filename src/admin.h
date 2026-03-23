@@ -1,6 +1,7 @@
 #ifndef ADMIN_H
 #define ADMIN_H
 
+#include "student.h"
 #include<string>
 #include<vector>
 using namespace std ;
@@ -11,9 +12,9 @@ class admin{
 
     public:
     void adminmenu();
-    void adminfunctions(vector<student>& s);
-    void addstudent(vector<student>& s);
-    void removestudent(vector<student>& s);
+    void adminfunctions(student s[]);
+    void addstudent(student s[]);
+    void removestudent(student s[]);
     void addteacher();
     
 };

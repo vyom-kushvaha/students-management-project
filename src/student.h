@@ -21,6 +21,7 @@ class student{
     int getid();
 
     student(int id, string name);
+    student();
 
 };
 

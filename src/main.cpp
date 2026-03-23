@@ -13,13 +13,10 @@ using namespace std;
 int  main()
 {   
     int role;
-    vector<student> s;
-    student s2(int k,string name2);
+    student s[10];
+    int choice = log :: logincall();
 
-    
-    int choice= log :: logincall();
-
-   while(choice!=2)
+    while (choice != 2)
     {
         role=log::auth();
         switch(role)
@@ -27,8 +24,9 @@ int  main()
          case 1:
            { 
                student s1(00,"temp");
-               s1.stufunctions();
                cout<<"login succesful"<<endl;
+              s1.stufunctions();
+              
            }
             break;
 
@@ -36,14 +34,14 @@ int  main()
             {
             cout<<"login succesful"<<endl;
             teacher t;
-            t.tchfunction(s);
+            t.tchfunction(s,5);
           }
             break;
         case 3:
             {
             cout<<"login succesful";
             admin a;
-            a.adminfunctions(s);
+            a.adminfunctions(s,1);
             }
         
             break;
