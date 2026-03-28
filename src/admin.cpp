@@ -19,7 +19,7 @@ void admin::adminfunctions(vector<student>& students)
 {
     adminmenu();
     int ch;
-    vector<student>& students;
+    
     cout << "Enter your choice:" << endl;
     cin >> ch;
     while (ch != 4)
@@ -47,6 +47,14 @@ void admin::adminfunctions(vector<student>& students)
     }
 }
 
-
+void admin::addstudent(vector<student>& students){
+    cout<<"work not done yet";
+}
+void admin::removestudent(vector<student>& students){
+    cout<<"work not done yet";
+}
+void admin::addteacher(){
+    cout<<"work not done yet";
+}
 
    

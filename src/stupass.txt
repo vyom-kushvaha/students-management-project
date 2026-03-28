@@ -1,3 +1,10 @@
-vyom1 1111 student
-vyom2 2222 student
-mam1 1111 teacher
+0,vyom1,1111,student
+1,vyom2,1112,student
+2,vyom3,1113,student
+3,vyom4,1114,student
+4,vyom5,1115,student
+5,vyom6,1116,student
+6,vyom7,1117,student
+7,vyom8,1118,student
+8,vyom9,1119,student
+9,vyom10,1120,student

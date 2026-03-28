@@ -15,7 +15,7 @@ int  main()
 {   
     int role;
     int id;
-    vector<student> s;
+    vector<student> students;
     int choice = log :: logincall();
 
     while (choice != 2)
@@ -37,14 +37,14 @@ int  main()
             {
             cout<<"login succesful"<<endl;
             teacher t;
-            t.tchfunction(s);
+            t.tchfunction(students);
           }
             break;
         case 3:
             {
             cout<<"login succesful";
             admin a;
-            a.adminfunctions(s);
+            a.adminfunctions(students);
             }
         
             break;
@@ -63,5 +63,5 @@ int  main()
     return 0;
 }
 
-
-
+//shortcut to run g++ main.cpp student.cpp teacher.cpp admin.cpp log.cpp -o app
+// .\app

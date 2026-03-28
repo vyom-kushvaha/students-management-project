@@ -56,7 +56,7 @@ namespace log
                   int i = 0, j = 0, k = 0, n=0;
                 
                   // id extract
-                while (name[i] != ' ') 
+                while (name[i] != ',') 
                  {
                      id += name[i];
                      i++;
@@ -75,7 +75,7 @@ namespace log
                  i++;
                  
                  // password extract
-                 while (name[i] != ' ') 
+                 while (name[i] != ',') 
                  {
                      fpassword  += name[i];
                      i++;
