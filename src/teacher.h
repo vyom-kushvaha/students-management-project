@@ -12,7 +12,7 @@ class teacher{
     public:
     void markAttendance(vector<student>& students);
     void enterMarks();
-    void tchfunction(student s[]);
+    void tchfunction(vector<student> s);
     void teachmenu();
 };
 #endif 

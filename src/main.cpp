@@ -5,6 +5,7 @@
 #include "teacher.h"
 #include<vector>
 #include "admin.h"
+#include<utility>
 
 using namespace std;
 
@@ -13,12 +14,14 @@ using namespace std;
 int  main()
 {   
     int role;
-    student s[10];
+    int id;
+    vector<student> s;
     int choice = log :: logincall();
 
     while (choice != 2)
     {
-        role=log::auth();
+        role=log::auth().first;
+        id=stoi(log::auth().second);
         switch(role)
         {
          case 1:
@@ -34,14 +37,14 @@ int  main()
             {
             cout<<"login succesful"<<endl;
             teacher t;
-            t.tchfunction(s,5);
+            t.tchfunction(s);
           }
             break;
         case 3:
             {
             cout<<"login succesful";
             admin a;
-            a.adminfunctions(s,1);
+            a.adminfunctions(s);
             }
         
             break;
@@ -59,3 +62,6 @@ int  main()
         
     return 0;
 }
+
+
+

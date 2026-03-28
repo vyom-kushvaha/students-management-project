@@ -19,6 +19,7 @@ void admin::adminfunctions(vector<student>& students)
 {
     adminmenu();
     int ch;
+    vector<student>& students;
     cout << "Enter your choice:" << endl;
     cin >> ch;
     while (ch != 4)

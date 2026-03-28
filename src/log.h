@@ -2,11 +2,13 @@
 #define LOG_H
 
 #include <string>
+#include<utility>
 
+using namespace std;
 namespace log {
     int logincall();
-    int auth();
-    int check(std::string username, int password);
+    pair<int,string> auth();
+    pair<int,string> check(string username, string password);
 }
 
 #endif

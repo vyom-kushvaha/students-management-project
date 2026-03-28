@@ -12,9 +12,9 @@ class admin{
 
     public:
     void adminmenu();
-    void adminfunctions(student s[]);
-    void addstudent(student s[]);
-    void removestudent(student s[]);
+    void adminfunctions(vector<student>& students);
+    void addstudent(vector<student>& students);
+    void removestudent(vector<student>& students);
     void addteacher();
     
 };

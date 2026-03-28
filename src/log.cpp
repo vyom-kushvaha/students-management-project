@@ -3,25 +3,28 @@
 #include<string>
 #include<fstream>
 #include<sstream>
+#include<utility>
 
 using namespace std;
 namespace log
 {
-    int auth()//autheticator function
+    pair<int,string> auth()//autheticator function
     {
         string username;
-        int password;
+        string password;
         cout<<"Enter Username:";
         cin>>username;
         cout<<"Enter Password:";
         cin>>password;
 
-        int role = check(username, password);
+        auto result = check(username, password);
+        int role = result.first;
+        string id = result.second;
         if(role == 0){
             cout<<"Invalid credentials. Try again."<<endl;
             return auth();
         }
-        return role;
+        return {role,id};
     }
 
     int logincall()
@@ -39,31 +42,88 @@ namespace log
         return c;
     }
 
-    int check(string username, int password)
+    pair<int, string> check(string username, string password)
     {
         ifstream fread("stupass.txt");
-        string line;
-        while (getline(fread, line)) {   // line by line read
-            string fusername;
-            int fpassword;
-            string fcatagorie;
+            string name;
+            while (getline(fread, name)) 
+            {     // line by line read
+                  string fusername;
+                  string fpassword;
+                  string fcatagorie;
+                  string id;
+                  int role;
+                  int i = 0, j = 0, k = 0, n=0;
+                
+                  // id extract
+                while (name[i] != ' ') 
+                 {
+                     id += name[i];
+                     i++;
+                     n++;
+                 }
+                 id[n] = '\0';
+                 i++;
 
-            stringstream ss(line);      // line ko todne ke liye
+                 // username extract
+                 while (name[i] != ',') 
+                 {
+                     fusername += name[i];
+                     i++;
+                 }
+                 fusername[i] = '\0';
+                 i++;
+                 
+                 // password extract
+                 while (name[i] != ' ') 
+                 {
+                     fpassword  += name[i];
+                     i++;
+                     j++;
+                 }
+                 fpassword[j] = '\0';
+                 i++;
+                 
+                 // category extract
+                 while (name[i] != '\n' && name[i] != '\0')
+                  {
+                     fcatagorie += name[i];
+                     i++;
+                     k++;
+                 }
+                 fcatagorie[k] = '\0';
+                 
+                 // comparison
+                 if (username == fusername) 
+                 {
+                     cout << "username found" << endl;
+                 
+                     if (password == fpassword)
+                      {
+                         cout << "password is correct" << endl;
+                         
+                         if(fcatagorie=="student")
+                            role=1;
+                        else if(fcatagorie=="teacher")
+                            role=2;
+                        else
+                            role=3;
+                     } else {
+                         cout << "password is incorrect";
+                     }
+                 
+                 }
+                 else
+                 {
+                     cout << "username does not found";
+                 }      
 
-            ss >> fusername >> fpassword >> fcatagorie;   
-            
-            if(username==fusername && password==fpassword)        
-            {
-                if(fcatagorie=="student")
-                    return 1;
-                else if(fcatagorie=="teacher")
-                    return 2;
-                else if(fcatagorie=="admin")
-                    return 3;
-            }
-            
-        }
-        return 0;
+                 if (username == fusername && password == fpassword)
+                 {
+                    return {role,id};
+                }
+            }       
     }
+    
 
 }
