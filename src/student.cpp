@@ -7,7 +7,7 @@ using namespace std;
 student::student(int fid,string fname,int fac,int ftc,int fmarks)
 {
     id=fid;
-    name=fac;
+    name=fname;
     ac=fac;
     tc=ftc;
     marks=fmarks;
