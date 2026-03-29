@@ -6,11 +6,11 @@
 using namespace std;
 student::student(int fid,string fname,int fac,int ftc,int fmarks)
 {
-    fid=id;
-    fname=name;
-    fac=ac;
-    ftc=tc;
-    fmarks=marks;
+    id=fid;
+    name=fac;
+    ac=fac;
+    tc=ftc;
+    marks=fmarks;
 
 }
 student::student(int i,string tempname)
