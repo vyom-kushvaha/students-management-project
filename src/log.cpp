@@ -8,7 +8,7 @@
 using namespace std;
 namespace log
 {
-    pair<int,string> auth()//autheticator function
+    pair<int,string> auth(int &authtrial)//autheticator function
     {
         string username;
         string password;
@@ -22,7 +22,13 @@ namespace log
         string id = result.second;
         if(role == 0){
             cout<<"Invalid credentials. Try again."<<endl;
-            return auth();
+            authtrial++;
+            if(authtrial<=3)
+            return auth(authtrial);
+            else{
+                cout<<"Too many attempts. Returning to main menu"<<endl;
+                return{0,""};
+            }
         }
         return {role,id};
     }
@@ -37,7 +43,7 @@ namespace log
         if(c!=1 && c!=2)
         {
             cout<<"Invalid choice.Try again!"<<endl;
-            logincall();
+            return logincall();
         }
         return c;
     }
@@ -62,7 +68,7 @@ namespace log
                      i++;
                      n++;
                  }
-                 id[n] = '\0';
+                
                  i++;
 
                  // username extract
@@ -71,7 +77,7 @@ namespace log
                      fusername += name[i];
                      i++;
                  }
-                 fusername[i] = '\0';
+                
                  i++;
                  
                  // password extract
@@ -81,7 +87,7 @@ namespace log
                      i++;
                      j++;
                  }
-                 fpassword[j] = '\0';
+             
                  i++;
                  
                  // category extract
@@ -91,7 +97,7 @@ namespace log
                      i++;
                      k++;
                  }
-                 fcatagorie[k] = '\0';
+                
                  
                  // comparison
                  if (username == fusername) 
@@ -113,16 +119,19 @@ namespace log
                      }
                  
                  }
-                 else
-                 {
-                     cout << "username does not found";
-                 }      
+                      
 
                  if (username == fusername && password == fpassword)
                  {
                     return {role,id};
                 }
-            }       
+            }   
+        
+            
+               
+            cout << "username does not found"<<endl;
+            return {0,""};
+                      
     }
     
 

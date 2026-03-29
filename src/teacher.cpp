@@ -11,7 +11,7 @@ void teacher ::teachmenu()
         cout<<"2. Enter Marks"<<endl;
         cout<<"3. Logout"<<endl;
     }
-void teacher :: tchfunction(vector<student> s)
+void teacher::tchfunction(vector<student>& s)
     {   
         teachmenu();
         int ch;
