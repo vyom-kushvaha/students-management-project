@@ -20,8 +20,10 @@ class student{
     void markAbsent();
     int getid();
 
+
     student(int id, string name);
     student();
+    student(int fid,string fname,int fac,int ftc,int marks);
 
 };
 

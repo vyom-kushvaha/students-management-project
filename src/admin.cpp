@@ -7,6 +7,12 @@
 
 using namespace std;
 
+
+admin::admin(int fid,string fname)
+{
+    id=fid;
+    name=fname;
+}
 void admin::adminmenu()
 {
     cout << "1. Add Student" << endl;

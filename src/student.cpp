@@ -4,7 +4,15 @@
 #include<string>
 
 using namespace std;
+student::student(int fid,string fname,int fac,int ftc,int fmarks)
+{
+    fid=id;
+    fname=name;
+    fac=ac;
+    ftc=tc;
+    fmarks=marks;
 
+}
 student::student(int i,string tempname)
 {
     id=i;
@@ -58,11 +66,11 @@ void student :: stufunctions()
     }
     void student :: viewdet()
     {
-        cout<<"ID: "<<id<<"NAME:"<<name<<endl;
+        cout<<"ID: "<<id<<"   "<<"NAME:"<<name<<endl;
     }
     void student :: viewattd()
     {
-        cout<<"YOUR ATTENDANCE:"<<ac<<"/"<<tc<<endl;
+        cout<<"YOUR ATTENDANCE:"<<ac<<"/"<<tc<<"%"<<endl;
     }
     void student::markPresent()
     {

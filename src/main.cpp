@@ -6,17 +6,23 @@
 #include<vector>
 #include "admin.h"
 #include<utility>
-
+#include"loader.h"
 using namespace std;
 
 
 
 int  main()
 {   
+     vector<student> students;
+     loader :: loadstudents(students);
+     vector<teacher> teachers;
+     loader::loadteachers(teachers);
+     vector<admin> admins;
+     loader::loadadmins(admins);
     int authtrial=0;
     int role;
     int id;
-    vector<student> students;
+   
     int choice = log :: logincall();
 
      
@@ -30,12 +36,11 @@ int  main()
              }
              switch(role)
             {
-                
+
               case 1:
                 { 
-                    student s1(00,"temp");
                     cout<<"login succesful"<<endl;
-                   s1.stufunctions();
+                   students[id].stufunctions();
                 
                 }
                  break;
@@ -43,15 +48,13 @@ int  main()
              case 2:
                  {
                  cout<<"login succesful"<<endl;
-                 teacher t;
-                 t.tchfunction(students);
+                 teachers[id].tchfunction(students);
                }
                  break;
              case 3:
                  {
                  cout<<"login succesful";
-                 admin a;
-                 a.adminfunctions(students);
+                 admins[id].adminfunctions(students);
                   }
               
                   break;
@@ -70,5 +73,5 @@ int  main()
     return 0;
 }
 
-//shortcut to run g++ main.cpp student.cpp teacher.cpp admin.cpp log.cpp -o app
+//shortcut to run g++ main.cpp student.cpp teacher.cpp admin.cpp log.cpp loder.cpp -o app
 // .\app

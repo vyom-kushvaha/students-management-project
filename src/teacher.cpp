@@ -5,6 +5,11 @@
 
 using namespace std;
 
+teacher::teacher(int fid,string fname)
+{
+    id=fid;
+    name=fname;
+}
 void teacher ::teachmenu()
     {
         cout<<"1. Mark Attendance"<<endl;
