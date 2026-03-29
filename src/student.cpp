@@ -70,7 +70,7 @@ void student :: stufunctions()
     }
     void student :: viewattd()
     {
-        cout<<"YOUR ATTENDANCE:"<<ac<<"/"<<tc<<"%"<<endl;
+        cout<<"YOUR ATTENDANCE:"<<ac<<"/"<<tc<<endl;
     }
     void student::markPresent()
     {
