@@ -2,6 +2,7 @@
 #include<vector>
 #include "student.h"
 #include<string>
+#include<fstream>
 
 using namespace std;
 student::student(int fid,string fname,int fac,int ftc,int fmarks)
@@ -72,18 +73,62 @@ void student :: stufunctions()
     {
         cout<<"YOUR ATTENDANCE:"<<ac<<"/"<<tc<<endl;
     }
-    void student::markPresent()
+    void student::markPresent(vector<student>& students)
     {
+        int i,n;
+        n = students.size();
         ac++;
         tc++;
+         ofstream  fwrite("students.txt");
+        
+            if (fwrite.is_open()) 
+            {
+                for(i=0;i<n;i++)
+            {
+                fwrite << students[i].id<<","<<students[i].name<<","<<students[i].ac<<","<<students[i].tc<<","<<students[i].marks<<"\n";
+            }
+
+              fwrite.close();
+            }
+    
+
     }
 
-    void student::markAbsent()
+    void student::markAbsent(vector<student>& students)
     {
         tc++;
-    }
-    int student::getid()
-    {
-        return id;
-    }
+        int i,n;
+        ofstream  fwrite("students.txt");
+        
+            if (fwrite.is_open()) 
+            {
+                for(i=0;i<n;i++)
+            {
+                fwrite << students[i].id<<","<<students[i].name<<","<<students[i].ac<<","<<students[i].tc<<","<<students[i].marks<<"\n";
+            }
 
+              fwrite.close();
+            }
+        
+    }
+    void student::enterMarks(vector<student>& students)
+    {
+        int m;
+        cout<<"Enter Marks:";
+        cin>>m;
+        marks = m;
+        int i,n;
+        ofstream  fwrite("students.txt");
+        
+            if (fwrite.is_open()) 
+            {
+                for(i=0;i<n;i++)
+            {
+                fwrite << students[i].id<<","<<students[i].name<<","<<students[i].ac<<","<<students[i].tc<<","<<students[i].marks<<"\n";
+            }
+
+              fwrite.close();
+            }
+        
+    }
+   

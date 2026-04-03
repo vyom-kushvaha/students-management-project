@@ -2,6 +2,7 @@
 #include "teacher.h"
 #include "student.h"
 #include<vector>
+#include<fstream>
 
 using namespace std;
 
@@ -16,7 +17,7 @@ void teacher ::teachmenu()
         cout<<"2. Enter Marks"<<endl;
         cout<<"3. Logout"<<endl;
     }
-void teacher::tchfunction(vector<student>& s)
+void teacher::tchfunction(vector<student>& students)
     {   
         teachmenu();
         int ch;
@@ -27,10 +28,10 @@ void teacher::tchfunction(vector<student>& s)
         switch(ch)
         {
             case 1:
-                markAttendance(s);
+                markAttendance(students);
                 break;
             case 2:
-                enterMarks();
+                enterMarks(students);
                 break;
             case 3:
                 cout<<"Logging out..."<<endl;
@@ -45,28 +46,35 @@ void teacher::tchfunction(vector<student>& s)
     }
 void teacher ::markAttendance(vector<student>& students)
     {
+        int i=0;
+        char status;
+        cout<<"Enter ID Of Student For Attendance:";
+        cin>>i;
         cout<<"Write p for present and a for absent"<<endl;
-        for(int i=0;i<students.size();i++)
-        {
-            cout<<"Mark attendance for student ID "<<students[i].getid()<<": ";
-            char status;
-            cin>>status;    
+        cin>>status;    
 
             if(status == 'p' || status == 'P')
-                students[i].markPresent();
+                {
+                 students[i].markPresent(students);
+                 cout<<"Marked Present";
+                }
             else if(status == 'a' || status == 'A')
-                students[i].markAbsent();
+                {
+                 students[i].markAbsent(students);
+                 cout<<"Marked Absent";
+                }
             else
             {
-                --i; // Repeat for the same student
-                cout<<"Invalid input for student ID "<<students[i].getid()<<". Skipping..."<<endl;
+                
+                cout<<"Invalid Input !\n---TRY AGAIN---"<<endl;
             }
-
-        }
-        cout<<"Attendance marked successfully."<<endl;
+            
     }
-void teacher ::enterMarks()
+void teacher ::enterMarks(vector<student>& students)
     {
-        cout<<"Marks entered successfully."<<endl;
+        int i;
+        cout<<"Enter ID Of Student To Enter Marks:";
+        cin>>i;
+        students[i].enterMarks(students);
     }
 

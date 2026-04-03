@@ -1,11 +1,16 @@
-0,ram,2,4,24
-1,Rahul,2,5,78
-2,Anjali,1,4,85
-3,Amit,3,6,67
-4,Priya,2,5,92
-5,Karan,1,3,74
-6,Neha,2,4,88
-7,Vikas,3,7,59
-8,Sneha,1,2,81
-9,Arjun,2,5,69
-10,Kavya,3,6,95
+0,vyom kushvaha,8,9,90
+1,Aarav Sharma,45,50,88
+2,Diya Patel,48,50,92
+3,Rohan Mehta,40,50,76
+4,Ananya Gupta,47,50,85
+5,Krishna Verma,42,50,79
+6,Ishita Singh,49,50,95
+7,Aditya Joshi,38,50,72
+8,Meera Nair,46,50,84
+9,Raj Malhotra,41,50,78
+10,Sanya Kapoor,50,50,97
+11,Vivaan Shah,44,50,81
+12,Kavya Iyer,43,50,80
+13,Arjun Desai,39,50,74
+14,Priya Reddy,47,50,89
+15,Karan Chauhan,36,50,70

@@ -14,7 +14,7 @@ class teacher{
     public:
     teacher(int fid,string fname);
     void markAttendance(vector<student>& students);
-    void enterMarks();
+    void enterMarks(vector<student>& students);
     void tchfunction(vector<student>& students);
     void teachmenu();
 };

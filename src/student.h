@@ -16,9 +16,10 @@ class student{
     void viewattd();
     void stufunctions();
     void stumenu();
-    void markPresent();
-    void markAbsent();
-    int getid();
+    void markPresent(vector<student>& students);
+    void markAbsent(vector<student>& students);
+    void enterMarks(vector<student>& students);
+    
 
 
     student(int id, string name);
