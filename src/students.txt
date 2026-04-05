@@ -1,6 +1,6 @@
 0,vyom kushvaha,8,9,90
-1,Aarav Sharma,45,50,88
-2,Diya Patel,48,50,92
+1,Aarav Sharma,46,51,88
+2,Diya Patel,48,50,90
 3,Rohan Mehta,40,50,76
 4,Ananya Gupta,47,50,85
 5,Krishna Verma,42,50,79

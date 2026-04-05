@@ -97,7 +97,8 @@ void student :: stufunctions()
     void student::markAbsent(vector<student>& students)
     {
         tc++;
-        int i,n;
+        int i;
+        int n = students.size();
         ofstream  fwrite("students.txt");
         
             if (fwrite.is_open()) 
@@ -117,7 +118,8 @@ void student :: stufunctions()
         cout<<"Enter Marks:";
         cin>>m;
         marks = m;
-        int i,n;
+        int i;
+        int n = students.size();
         ofstream  fwrite("students.txt");
         
             if (fwrite.is_open()) 
