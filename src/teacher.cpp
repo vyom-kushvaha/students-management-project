@@ -3,8 +3,10 @@
 #include "student.h"
 #include<vector>
 #include<fstream>
+#include"log.h"
 
 using namespace std;
+using namespace log;
 
 teacher::teacher(int fid,string fname)
 {
@@ -46,35 +48,37 @@ void teacher::tchfunction(vector<student>& students)
     }
 void teacher ::markAttendance(vector<student>& students)
     {
-        int i=0;
-        char status;
-        cout<<"Enter ID Of Student For Attendance:";
-        cin>>i;
-        cout<<"Write p for present and a for absent"<<endl;
-        cin>>status;    
+       
+        char status='\0';
+        int i=searchstudent(students);
+        while(status != 'D')  
+        {  
+            cout<<"Write p for present and a for absent"<<endl;
+            cin>>status;    
 
-            if(status == 'p' || status == 'P')
+                if(status == 'p' || status == 'P')
+                    {
+                     students[i].markPresent(students);
+                     cout<<"Marked Present"<<endl;
+                     status = 'D'; //d for done
+                    }
+                else if(status == 'a' || status == 'A')
+                    {
+                     students[i].markAbsent(students);
+                     cout<<"Marked Absent"<<endl;
+                     status = 'D'; //d for done
+                    }
+                else
                 {
-                 students[i].markPresent(students);
-                 cout<<"Marked Present";
+
+                    cout<<"Invalid Input !\n---TRY AGAIN---"<<endl;
                 }
-            else if(status == 'a' || status == 'A')
-                {
-                 students[i].markAbsent(students);
-                 cout<<"Marked Absent";
-                }
-            else
-            {
-                
-                cout<<"Invalid Input !\n---TRY AGAIN---"<<endl;
-            }
-            
+        }
+
     }
 void teacher ::enterMarks(vector<student>& students)
     {
-        int i;
-        cout<<"Enter ID Of Student To Enter Marks:";
-        cin>>i;
+        int i=searchstudent(students);
         students[i].enterMarks(students);
     }
 

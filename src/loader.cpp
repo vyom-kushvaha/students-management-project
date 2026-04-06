@@ -16,11 +16,18 @@ using namespace std;
     while (getline(fread, line)) 
     {
         string fname;
-        int fid = 0, fac = 0, ftc = 0, fmarks = 0;
+        int findex=0, fid = 0, fac = 0, ftc = 0, fmarks = 0;
 
-        string tempid, tempfac, tempftc, tempmarks;
+        string tempindex, tempid, tempfac, tempftc, tempmarks;
 
         int i = 0;
+        // index
+        while (i < line.size() && line[i] != ',') {
+            tempindex += line[i];
+            i++;
+        }
+        findex = stoi(tempindex);
+        i++;
 
         // id
         while (i < line.size() && line[i] != ',') {
@@ -61,7 +68,7 @@ using namespace std;
         fmarks = stoi(tempmarks);
 
         // pushback
-        student s(fid, fname, fac, ftc, fmarks);
+        student s(findex, fid, fname, fac, ftc, fmarks);
         students.push_back(s);
     }
 }

@@ -8,7 +8,7 @@ using namespace std ;
 class student{
     private:
     string name;
-    int id=0,marks=0,ac=0,tc=0;
+    int index=0,id=0,marks=0,ac=0,tc=0;
 
     public:
     void viewdet();
@@ -19,12 +19,12 @@ class student{
     void markPresent(vector<student>& students);
     void markAbsent(vector<student>& students);
     void enterMarks(vector<student>& students);
-    
+    int getid();
 
 
     student(int id, string name);
     student();
-    student(int fid,string fname,int fac,int ftc,int marks);
+    student(int findex, int fid,string fname,int fac,int ftc,int marks);
 
 };
 

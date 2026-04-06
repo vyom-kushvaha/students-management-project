@@ -5,8 +5,9 @@
 #include<fstream>
 
 using namespace std;
-student::student(int fid,string fname,int fac,int ftc,int fmarks)
+student::student(int findex, int fid,string fname,int fac,int ftc,int fmarks)
 {
+    index=findex;
     id=fid;
     name=fname;
     ac=fac;
@@ -85,7 +86,7 @@ void student :: stufunctions()
             {
                 for(i=0;i<n;i++)
             {
-                fwrite << students[i].id<<","<<students[i].name<<","<<students[i].ac<<","<<students[i].tc<<","<<students[i].marks<<"\n";
+                fwrite << students[i].index<<","<<students[i].id<<","<<students[i].name<<","<<students[i].ac<<","<<students[i].tc<<","<<students[i].marks<<"\n";
             }
 
               fwrite.close();
@@ -105,7 +106,7 @@ void student :: stufunctions()
             {
                 for(i=0;i<n;i++)
             {
-                fwrite << students[i].id<<","<<students[i].name<<","<<students[i].ac<<","<<students[i].tc<<","<<students[i].marks<<"\n";
+                fwrite << students[i].index<<","<<students[i].id<<","<<students[i].name<<","<<students[i].ac<<","<<students[i].tc<<","<<students[i].marks<<"\n";
             }
 
               fwrite.close();
@@ -126,7 +127,7 @@ void student :: stufunctions()
             {
                 for(i=0;i<n;i++)
             {
-                fwrite << students[i].id<<","<<students[i].name<<","<<students[i].ac<<","<<students[i].tc<<","<<students[i].marks<<"\n";
+                fwrite << students[i].index<<","<<students[i].id<<","<<students[i].name<<","<<students[i].ac<<","<<students[i].tc<<","<<students[i].marks<<"\n";
             }
 
               fwrite.close();
@@ -134,3 +135,8 @@ void student :: stufunctions()
         
     }
    
+int student::getid()
+{
+    
+    return id;
+}

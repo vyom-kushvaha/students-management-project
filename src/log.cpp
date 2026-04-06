@@ -4,6 +4,7 @@
 #include<fstream>
 #include<sstream>
 #include<utility>
+#include<vector>
 
 using namespace std;
 namespace log
@@ -133,6 +134,28 @@ namespace log
             return {0,""};
                       
     }
-    
+    int searchstudent(vector<student>& students)
+    {
+        int eid;
+        int n = students.size();
+        int status=0;
+
+        for(int j=0;j<3;j++)
+        {
+            cout<<"Enter ID Of Student For Attendance:";
+            cin>>eid;
+            for(int i = 0; i < n; i++)
+            {
+                int tid=students[i].getid(); 
+                if(tid == eid)
+                {   
+                    return i;
+                }
+            }
+            cout<<"Student not found"<<endl;
+            cout<<"trial:"<<j<<endl<<"---Try Again---"<<endl;
+        }
+            
+    }
 
 }
