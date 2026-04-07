@@ -1,11 +1,14 @@
-#include<iostream>
+#include <iostream>
 #include <algorithm>
 #include "admin.h"
-#include<string>
+#include <string>
 #include "student.h"
 #include <vector>
-
+#include "log.h"
+#include <fstream>
+#include "loader.h"
 using namespace std;
+using namespace log;
 
 
 admin::admin(int fid,string fname)
@@ -15,6 +18,7 @@ admin::admin(int fid,string fname)
 }
 void admin::adminmenu()
 {
+    cout<<endl;
     cout << "1. Add Student" << endl;
     cout << "2. Remove Student" << endl;
     cout << "3. Add Teacher" << endl;
@@ -39,7 +43,7 @@ void admin::adminfunctions(vector<student>& students)
                 removestudent(students);
                 break;
             case 3:
-                addteacher();
+                viewstudent(students);
                 break;
             case 4:
                 cout << "Logging out..." << endl;
@@ -54,13 +58,49 @@ void admin::adminfunctions(vector<student>& students)
 }
 
 void admin::addstudent(vector<student>& students){
-    cout<<"work not done yet";
+    int n = students.size() +1 ;
+    int eid,eac=0,etc=0,emarks=0;
+    string ename;
+    
+    cout<<"Enter Student Name:";
+    cin>>ename;
+    cout<<"Enter ID:";
+    cin>>eid;
+
+    students.push_back(student(n,eid,ename,eac,etc,emarks));
+
 }
 void admin::removestudent(vector<student>& students){
-    cout<<"work not done yet";
+    int index=searchstudent(students);
+    students.erase(students.begin() + index - 1);
+
+    int n = students.size();
+
+    ofstream  fwrite("students.txt");
+        
+            if (fwrite.is_open()) 
+            {
+                for(int i=0;i<n;i++)
+            {
+                int id=students[i].getid();
+                int ac=students[i].getac();
+                int tc=students[i].gettc();
+                int marks=students[i].getmarks();
+                string name=students[i].getname();
+
+                fwrite <<i<<","<<id<<","<<name<<","<<ac<<","<<tc<<","<<marks<<"\n";
+            }
+
+              fwrite.close();
+            }
+            loader ::loadstudents(students);
 }
-void admin::addteacher(){
-    cout<<"work not done yet";
+void admin::viewstudent(vector<student>& students)
+{
+    int i=searchstudent(students);
+    students[i].viewdet();
+    students[i].viewmarks();
+    students[i].viewattd();
 }
 
    

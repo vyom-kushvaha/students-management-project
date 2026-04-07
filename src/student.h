@@ -20,6 +20,10 @@ class student{
     void markAbsent(vector<student>& students);
     void enterMarks(vector<student>& students);
     int getid();
+    int getac();
+    int gettc();
+    int getmarks();
+    string getname();
 
 
     student(int id, string name);

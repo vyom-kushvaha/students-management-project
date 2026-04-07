@@ -140,3 +140,19 @@ int student::getid()
     
     return id;
 }
+int student::getac()
+{
+    return ac;
+}
+int student::getmarks()
+{
+    return marks;
+}
+int student::gettc()
+{
+    return tc;
+}
+string student::getname()
+{
+    return name;
+}
