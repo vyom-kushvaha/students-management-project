@@ -116,7 +116,8 @@ namespace log
                         else
                             role=3;
                      } else {
-                         cout << "password is incorrect";
+                         cout << "password is incorrect"<<endl;
+                          return {0,""};
                      }
                  
                  }
@@ -142,7 +143,7 @@ namespace log
 
         for(int j=0;j<3;j++)
         {
-            cout<<"Enter ID Of Student For Attendance:";
+            cout<<"Enter ID Of Student:";
             cin>>eid;
             for(int i = 0; i < n; i++)
             {
