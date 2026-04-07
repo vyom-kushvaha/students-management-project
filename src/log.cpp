@@ -53,7 +53,7 @@ namespace log
 
     pair<int, string> check(string username, string password)
     {
-        ifstream fread("stupass.txt");
+        ifstream fread("data/stupass.txt");
             string name;
             while (getline(fread, name)) 
             {     // line by line read

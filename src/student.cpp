@@ -89,7 +89,7 @@ void student :: stufunctions()
         n = students.size();
         ac++;
         tc++;
-         ofstream  fwrite("students.txt");
+         ofstream  fwrite("data/students.txt");
         
             if (fwrite.is_open()) 
             {
@@ -109,7 +109,7 @@ void student :: stufunctions()
         tc++;
         int i;
         int n = students.size();
-        ofstream  fwrite("students.txt");
+        ofstream  fwrite("data/students.txt");
         
             if (fwrite.is_open()) 
             {
@@ -131,7 +131,7 @@ void student :: stufunctions()
         marks = m;
         int i;
         int n = students.size();
-        ofstream  fwrite("students.txt");
+        ofstream  fwrite("data/students.txt");
         
             if (fwrite.is_open()) 
             {

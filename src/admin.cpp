@@ -75,7 +75,7 @@ void admin::addstudent(vector<student>& students){
     cin>>eid;
     int i;
     students.push_back(student(k,eid,ename,eac,etc,emarks));
-    ofstream  fwrite("students.txt");
+    ofstream  fwrite("data/students.txt");
     int n = students.size();
     if (fwrite.is_open()) 
             {
@@ -105,7 +105,7 @@ void admin::removestudent(vector<student>& students){
 
          int n = students.size();
 
-           ofstream  fwrite("students.txt");
+           ofstream  fwrite("data/students.txt");
         
             if (fwrite.is_open()) 
             {
@@ -178,7 +178,7 @@ void admin::updatestudent(vector<student>& students)
     }
 
     int n = students.size();
-    ofstream fwrite("students.txt");
+    ofstream fwrite("data/students.txt");
     if(fwrite.is_open())
     {
         for(int j = 0; j < n; j++)

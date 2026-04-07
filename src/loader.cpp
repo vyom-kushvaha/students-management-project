@@ -10,7 +10,7 @@ using namespace std;
 
   void loadstudents(vector<student>& students)
 {
-    ifstream fread("students.txt");
+    ifstream fread("data/students.txt");
     string line;
 
     while (getline(fread, line)) 
@@ -75,7 +75,7 @@ using namespace std;
 
       void loadteachers(vector<teacher>& teachers)
 {
-    ifstream fread("teachers.txt");
+    ifstream fread("data/teachers.txt");
     string line;
 
    
@@ -109,7 +109,7 @@ using namespace std;
 
       void loadadmins(vector<admin>& admins)
 {
-    ifstream fread("admins.txt");
+    ifstream fread("data/admins.txt");
     string line;
 
     // skip header
