@@ -21,7 +21,7 @@ void admin::adminmenu()
     cout<<endl;
     cout << "1. Add Student" << endl;
     cout << "2. Remove Student" << endl;
-    cout << "3. Add Teacher" << endl;
+    cout << "3. View Student Details" << endl;
     cout << "4. Logout" << endl;
 }
 
@@ -63,7 +63,8 @@ void admin::addstudent(vector<student>& students){
     string ename;
     
     cout<<"Enter Student Name:";
-    cin>>ename;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    getline(cin, ename);
     cout<<"Enter ID:";
     cin>>eid;
 
@@ -72,11 +73,17 @@ void admin::addstudent(vector<student>& students){
 }
 void admin::removestudent(vector<student>& students){
     int index=searchstudent(students);
-    students.erase(students.begin() + index - 1);
+        if(index==-1)
+        {
+            cout<<"Try Again"<<endl;
+        }
+        else
+        {
+            students.erase(students.begin() + index);
 
-    int n = students.size();
+         int n = students.size();
 
-    ofstream  fwrite("students.txt");
+           ofstream  fwrite("students.txt");
         
             if (fwrite.is_open()) 
             {
@@ -93,14 +100,23 @@ void admin::removestudent(vector<student>& students){
 
               fwrite.close();
             }
+            students.clear();
             loader ::loadstudents(students);
+        }
 }
 void admin::viewstudent(vector<student>& students)
 {
     int i=searchstudent(students);
-    students[i].viewdet();
-    students[i].viewmarks();
-    students[i].viewattd();
+            if(i==-1)
+        {
+            cout<<"Try Again"<<endl;
+        }
+        else
+        {
+         students[i].viewdet();
+         students[i].viewmarks();
+         students[i].viewattd();
+        }
 }
 
    

@@ -51,6 +51,12 @@ void teacher ::markAttendance(vector<student>& students)
        
         char status='\0';
         int i=searchstudent(students);
+        if(i==-1)
+        {
+            cout<<"Try Again"<<endl;
+        }
+        else
+        {
         while(status != 'D')  
         {  
             cout<<"Write p for present and a for absent"<<endl;
@@ -74,11 +80,20 @@ void teacher ::markAttendance(vector<student>& students)
                     cout<<"Invalid Input !\n---TRY AGAIN---"<<endl;
                 }
         }
+        }
 
     }
 void teacher ::enterMarks(vector<student>& students)
     {
         int i=searchstudent(students);
+        if(i==-1)
+        {
+            cout<<"Try Again"<<endl;
+        }
+        else
+        {
         students[i].enterMarks(students);
+        }
     }
+
 

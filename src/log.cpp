@@ -154,9 +154,10 @@ namespace log
                 }
             }
             cout<<"Student not found"<<endl;
-            cout<<"trial:"<<j<<endl<<"---Try Again---"<<endl;
+            cout<<"Attempt:"<<j+1<<endl<<"---Try Again---"<<endl;
         }
-            
+        cout<<"Attempt Limit Over"<<endl;
+        return -1;
     }
 
 }
