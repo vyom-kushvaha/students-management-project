@@ -19,11 +19,12 @@ admin::admin(int fid,string fname)
 }
 void admin::adminmenu()
 {
-    cout<<endl;
+    cout<<"\n=== Admin Menu ==="<<endl;
     cout << "1. Add Student" << endl;
     cout << "2. Remove Student" << endl;
     cout << "3. View Student Details" << endl;
-    cout << "4. Logout" << endl;
+    cout << "4. Update Student" << endl;
+    cout << "5. Logout" << endl;
 }
 
 void admin::adminfunctions(vector<student>& students)
@@ -33,7 +34,7 @@ void admin::adminfunctions(vector<student>& students)
     
     cout << "Enter your choice:" << endl;
     cin >> ch;
-    while (ch != 4)
+    while (ch != 5)
     {
         switch (ch)
         {
@@ -47,6 +48,9 @@ void admin::adminfunctions(vector<student>& students)
                 viewstudent(students);
                 break;
             case 4:
+                updatestudent(students);
+                break;
+            case 5:
                 cout << "Logging out..." << endl;
                 break;
             default:
@@ -63,10 +67,11 @@ void admin::addstudent(vector<student>& students){
     int eid,eac=0,etc=0,emarks=0;
     string ename;
     
-    cout<<"Enter Student Name:";
+    cout<<"\n--- Add Student ---"<<endl;
+    cout<<"Name: ";
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     getline(cin, ename);
-    cout<<"Enter ID:";
+    cout<<"ID: ";
     cin>>eid;
     int i;
     students.push_back(student(k,eid,ename,eac,etc,emarks));
@@ -136,4 +141,51 @@ void admin::viewstudent(vector<student>& students)
         }
 }
 
-   
+void admin::updatestudent(vector<student>& students)
+{
+    int i = searchstudent(students);
+    if(i == -1)
+    {
+        cout << "Try Again" << endl;
+        return;
+    }
+
+    int ch;
+    cout << "\n1. Update Name" << endl;
+    cout << "2. Update Marks" << endl;
+    cout << "Choice: ";
+    cin >> ch;
+
+    if(ch == 1)
+    {
+        string newname;
+        cin.ignore();
+        cout << "Enter New Name: ";
+        getline(cin, newname);
+        students[i].setname(newname);
+    }
+    else if(ch == 2)
+    {
+        int newmarks;
+        cout << "Enter New Marks: ";
+        cin >> newmarks;
+        students[i].setmarks(newmarks);
+    }
+    else
+    {
+        cout << "Invalid choice" << endl;
+        return;
+    }
+
+    int n = students.size();
+    ofstream fwrite("students.txt");
+    if(fwrite.is_open())
+    {
+        for(int j = 0; j < n; j++)
+        {
+            fwrite << j << "," << students[j].getid() << "," << students[j].getname() << "," << students[j].getac() << "," << students[j].gettc() << "," << students[j].getmarks() << "\n";
+        }
+        fwrite.close();
+        cout << "Updated successfully" << endl;
+    }
+}

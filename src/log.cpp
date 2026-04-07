@@ -13,21 +13,22 @@ namespace log
     {
         string username;
         string password;
-        cout<<"Enter Username:";
+        cout<<"\n--- Login ---"<<endl;
+        cout<<"Username: ";
         cin>>username;
-        cout<<"Enter Password:";
+        cout<<"Password: ";
         cin>>password;
 
         auto result = check(username, password);
         int role = result.first;
         string id = result.second;
         if(role == 0){
-            cout<<"Invalid credentials. Try again."<<endl;
+            cout<<"\nInvalid credentials. Try again."<<endl;
             authtrial++;
             if(authtrial<=3)
             return auth(authtrial);
             else{
-                cout<<"Too many attempts. Returning to main menu"<<endl;
+                cout<<"\nToo many attempts. Returning to main menu."<<endl;
                 return{0,""};
             }
         }
@@ -37,13 +38,14 @@ namespace log
     int logincall()
     {
         int c;
-        cout<<"Welcome to SMS"<<endl;
-        cout<<"Menu:\n"<<"1.login"<<"\n"<<"2.exit"<<endl;
-        cout<<"choice:";
+        cout<<"\n=== Student Management System ==="<<endl;
+        cout<<"1. Login"<<endl;
+        cout<<"2. Exit"<<endl;
+        cout<<"Choice: ";
         cin>>c;
         if(c!=1 && c!=2)
         {
-            cout<<"Invalid choice.Try again!"<<endl;
+            cout<<"Invalid choice. Try again!"<<endl;
             return logincall();
         }
         return c;
@@ -143,7 +145,7 @@ namespace log
 
         for(int j=0;j<3;j++)
         {
-            cout<<"Enter ID Of Student:";
+            cout<<"Enter Student ID: ";
             cin>>eid;
             for(int i = 0; i < n; i++)
             {
@@ -153,10 +155,10 @@ namespace log
                     return i;
                 }
             }
-            cout<<"Student not found"<<endl;
-            cout<<"Attempt:"<<j+1<<endl<<"---Try Again---"<<endl;
+            cout<<"Student not found."<<endl;
+            cout<<"Attempt "<<j+1<<" of 3. Try again."<<endl;
         }
-        cout<<"Attempt Limit Over"<<endl;
+        cout<<"Attempt limit reached."<<endl;
         return -1;
     }
 

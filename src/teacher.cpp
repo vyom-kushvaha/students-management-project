@@ -15,6 +15,7 @@ teacher::teacher(int fid,string fname)
 }
 void teacher ::teachmenu()
     {
+        cout<<"\n=== Teacher Menu ==="<<endl;
         cout<<"1. Mark Attendance"<<endl;
         cout<<"2. Enter Marks"<<endl;
         cout<<"3. Logout"<<endl;
@@ -57,27 +58,27 @@ void teacher ::markAttendance(vector<student>& students)
         }
         else
         {
+        cout<<"\n--- Mark Attendance ---"<<endl;
         while(status != 'D')  
         {  
-            cout<<"Write p for present and a for absent"<<endl;
+            cout<<"P = Present  |  A = Absent : ";
             cin>>status;    
 
                 if(status == 'p' || status == 'P')
                     {
                      students[i].markPresent(students);
-                     cout<<"Marked Present"<<endl;
-                     status = 'D'; //d for done
+                     cout<<"Marked Present."<<endl;
+                     status = 'D';
                     }
                 else if(status == 'a' || status == 'A')
                     {
                      students[i].markAbsent(students);
-                     cout<<"Marked Absent"<<endl;
-                     status = 'D'; //d for done
+                     cout<<"Marked Absent."<<endl;
+                     status = 'D';
                     }
                 else
                 {
-
-                    cout<<"Invalid Input !\n---TRY AGAIN---"<<endl;
+                    cout<<"Invalid input. Try again."<<endl;
                 }
         }
         }

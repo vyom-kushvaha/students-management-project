@@ -24,6 +24,8 @@ class student{
     int gettc();
     int getmarks();
     string getname();
+    void setname(string newname);
+    void setmarks(int newmarks);
 
 
     student(int id, string name);

@@ -36,20 +36,20 @@ int main()
 
         case 1:
         {
-            cout << "login succesful" << endl;
+            cout << "\n--- Login Successful ---" << endl;
             students[id].stufunctions();
         }
         break;
 
         case 2:
         {
-            cout << "login succesful" << endl;
+            cout << "\n--- Login Successful ---" << endl;
             teachers[id].tchfunction(students);
         }
         break;
         case 3:
         {
-            cout << "login succesful";
+            cout << "\n--- Login Successful ---" << endl;
             admins[id].adminfunctions(students);
         }
 
@@ -57,8 +57,8 @@ int main()
 
         default:
         {
-            cout << "username and password was incorrect" << endl;
-            cout << "please Try again" << endl;
+            cout << "\nInvalid username or password." << endl;
+            cout << "Please try again." << endl;
         }
         break;
         }

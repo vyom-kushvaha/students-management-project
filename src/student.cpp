@@ -27,6 +27,7 @@ student::student()
 }
 void student :: stumenu()
     {
+        cout<<"\n=== Student Menu ==="<<endl;
         cout<<"1. View Attendance"<<endl;
         cout<<"2. View Marks"<<endl;
         cout<<"3. View Details"<<endl;
@@ -64,15 +65,23 @@ void student :: stufunctions()
     }
     void student ::viewmarks()
     {
-        cout<<"MARKS:"<<marks<<"%"<<endl;
+        cout<<"\n--- Marks ---"<<endl;
+        cout<<"Marks : "<<marks<<"%"<<endl;
     }
     void student :: viewdet()
     {
-        cout<<"ID: "<<id<<"   "<<"NAME:"<<name<<endl;
+        cout<<"\n--- Student Details ---"<<endl;
+        cout<<"ID   : "<<id<<endl;
+        cout<<"Name : "<<name<<endl;
     }
     void student :: viewattd()
     {
-        cout<<"YOUR ATTENDANCE:"<<ac<<"/"<<tc<<endl;
+        cout<<"\n--- Attendance ---"<<endl;
+        cout<<"Classes : "<<ac<<"/"<<tc<<endl;
+        if(tc>0)
+            cout<<"Percent : "<<(ac*100)/tc<<"%"<<endl;
+        else
+            cout<<"Percent : N/A"<<endl;
     }
     void student::markPresent(vector<student>& students)
     {
@@ -116,7 +125,8 @@ void student :: stufunctions()
     void student::enterMarks(vector<student>& students)
     {
         int m;
-        cout<<"Enter Marks:";
+        cout<<"\n--- Enter Marks ---"<<endl;
+        cout<<"Marks: ";
         cin>>m;
         marks = m;
         int i;
@@ -155,4 +165,12 @@ int student::gettc()
 string student::getname()
 {
     return name;
+}
+void student::setname(string newname)
+{
+    name = newname;
+}
+void student::setmarks(int newmarks)
+{
+    marks = newmarks;
 }

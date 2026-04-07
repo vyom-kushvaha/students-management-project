@@ -18,6 +18,7 @@ class admin{
     void addstudent(vector<student>& students);
     void removestudent(vector<student>& students);
     void viewstudent(vector<student>& students);
+    void updatestudent(vector<student>& students);
 };
 
 #endif 
