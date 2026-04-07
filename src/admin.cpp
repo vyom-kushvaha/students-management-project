@@ -2,6 +2,7 @@
 #include <algorithm>
 #include "admin.h"
 #include <string>
+#include <limits>
 #include "student.h"
 #include <vector>
 #include "log.h"
@@ -58,7 +59,7 @@ void admin::adminfunctions(vector<student>& students)
 }
 
 void admin::addstudent(vector<student>& students){
-    int n = students.size() +1 ;
+    int k = students.size() +1 ;
     int eid,eac=0,etc=0,emarks=0;
     string ename;
     
@@ -67,9 +68,25 @@ void admin::addstudent(vector<student>& students){
     getline(cin, ename);
     cout<<"Enter ID:";
     cin>>eid;
+    int i;
+    students.push_back(student(k,eid,ename,eac,etc,emarks));
+    ofstream  fwrite("students.txt");
+    int n = students.size();
+    if (fwrite.is_open()) 
+            {
+                for(int i=0;i<n;i++)
+            {
+                int id=students[i].getid();
+                int ac=students[i].getac();
+                int tc=students[i].gettc();
+                int marks=students[i].getmarks();
+                string name=students[i].getname();
 
-    students.push_back(student(n,eid,ename,eac,etc,emarks));
+                fwrite <<i<<","<<id<<","<<name<<","<<ac<<","<<tc<<","<<marks<<"\n";
+            }
 
+              fwrite.close();
+            }
 }
 void admin::removestudent(vector<student>& students){
     int index=searchstudent(students);
