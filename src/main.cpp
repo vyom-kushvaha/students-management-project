@@ -68,5 +68,3 @@ int main()
     return 0;
 }
 
-// shortcut to run g++ main.cpp student.cpp teacher.cpp admin.cpp log.cpp loader.cpp -o app
-//  .\app
