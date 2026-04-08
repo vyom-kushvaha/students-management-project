@@ -1,8 +1,8 @@
 # 🎓 Student Management System (C++)
 
 ![Language](https://img.shields.io/badge/Language-C%2B%2B17-00599C?style=flat-square&logo=c%2B%2B)
-![Status](https://img.shields.io/badge/Status-Actively-Developing-brightgreen?style=flat-square)
-![Level](https://img.shields.io/badge/Level-Beginner–Intermediate-blue?style=flat-square)
+![Status](https://img.shields.io/badge/Status-Actively%20Developing-brightgreen?style=flat-square)
+![Level](https://img.shields.io/badge/Level-Beginner--Intermediate-blue?style=flat-square)
 
 ---
 
@@ -101,11 +101,17 @@ g++ -I./include src/main.cpp src/student.cpp src/teacher.cpp src/admin.cpp src/l
 
 ## 🖥️ Sample Output
 
-![Student Output](studentOutput.png)
+<p align="center">
+  <img src="./studentOutput.png" alt="Student Output" width="80%">
+</p>
 
-![Teacher Output](teacherOutput.png)
+<p align="center">
+  <img src="./teacherOutput.png" alt="Teacher Output" width="80%">
+</p>
 
-![Admin Output](adminOutput.png)
+<p align="center">
+  <img src="./adminOutput.png" alt="Admin Output" width="80%">
+</p>
 
 ---
 
