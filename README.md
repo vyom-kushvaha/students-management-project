@@ -1,7 +1,7 @@
 # 🎓 Student Management System (C++)
 
 ![Language](https://img.shields.io/badge/Language-C%2B%2B17-00599C?style=flat-square&logo=c%2B%2B)
-![Status](https://img.shields.io/badge/Status-Actively Developing-brightgreen?style=flat-square)
+![Status](https://img.shields.io/badge/Status-Actively-Developing-brightgreen?style=flat-square)
 ![Level](https://img.shields.io/badge/Level-Beginner–Intermediate-blue?style=flat-square)
 
 ---
