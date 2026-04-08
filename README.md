@@ -56,6 +56,10 @@ The project focuses on simulating a simple academic system with role-based acces
 * Constructor overloading
 * Header (`.h`) & source (`.cpp`) file separation
 * Basic modular design
+* vector concept
+* formatted output
+* file handling
+* git & github
 
 ---
 
