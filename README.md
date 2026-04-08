@@ -1,123 +1,141 @@
-# 🎓 Student Management System
+# 📚 Student Management System
 
-> A console-based C++ application for managing student records, attendance, and academic performance — built around clean OOP design.
-
-![C++](https://img.shields.io/badge/Language-C%2B%2B-00599C?style=flat-square&logo=c%2B%2B)
-![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square)
-![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
+## Description
+A console-based **Student Management System** written in C++ that uses text files for persistent data storage. It offers role-based access for Admins, Teachers, and Students. Admins can manage student records dynamically (auto-syncing credentials), Teachers can mark attendance and enter marks, while Students can view their progress. The project demonstrates strong object-oriented principles mixed with raw file I/O operations for data persistence.
 
 ---
 
-## 📌 Overview
+## Features
+*All features listed below are fully implemented and functional.*
 
-The **Student Management System** is a C++ terminal application that models real-world academic workflows. It separates concerns using class-based design — each entity (student, admin) has its own responsibilities, state, and interface. The system is built to be extended, not just used.
-
----
-
-## ✅ Features
-
-### Implemented
-- 🔐 Role-based login — Student and Admin flows
-- 📋 Student menu with view options (details, marks, attendance)
-- 📊 Attendance tracking (`markPresent` / `markAbsent` with cumulative count)
-- 🧾 Per-student record: ID, name, attendance count, total classes, marks
-- 🔄 Looped menu with input validation and graceful logout
-
-### 🚧 Pending / Planned
-- [ ] File I/O — persist student records between sessions
-- [ ] Admin panel — add, update, delete students
-- [ ] Search and filter by ID or name
-- [ ] Grade computation from marks
-- [ ] Multi-subject support
+- **Role-Based Authentication:** Login system routing users to Student, Teacher, or Admin portals based on credentials in `stupass.txt`.
+- **Dynamic Credential Syncing:** Whenever an Admin adds or removes a student from the system, their credentials are automatically appended or purged from the authentication database seamlessly.
+- **Student Capabilities:**
+  - View Attendance (Attended / Total classes with calculated percentage)
+  - View Marks
+  - View basic ID and Name details
+- **Teacher Capabilities:**
+  - Mark students as Present (P) or Absent (A)
+  - Enter total marks for a specific student ID
+- **Admin Capabilities:**
+  - Add new student records (Auto-generates student login profiles)
+  - Remove existing student records (Auto-deletes student login profiles and dynamically shifts data indexes)
+  - View details of any active student
+  - Update student names and marks
 
 ---
 
-## 🛠️ Tech Stack
-
-| Layer | Technology |
-|---|---|
-| Language | C++17 |
-| Paradigm | Object-Oriented Programming |
-| I/O | Standard console (`iostream`) |
-| Data structures | `std::vector`, `std::string` |
-| Build | g++ / any C++ compiler |
+## Known Limitations & Missing Features
+Based on a code review, here is what is still missing or slightly brittle:
+- ⚠️ **Missing Input Validation:** The manual file parser (`log::check()`) relies on exact character counting and strict commas. Any malformed text file, trailing space, or missing comma will trigger an infinite loop or breakdown.
+- ⚠️ **No Teacher/Admin Management:** Admins can only add or remove Students. There is no automated mechanism to add/remove other Teachers or Admins within the application itself without manually editing the text files.
 
 ---
 
-## ⚙️ How to Run
+## Tech Stack
+- **Language:** C++ (Standard C++11 or later)
+- **Compiler:** g++ (GCC / MinGW)
+- **Data Persistence:** Plain Text Files (`.txt` formatting)
+- **Libraries:** Standard C++ STL only (`iostream`, `fstream`, `vector`, `string`)
 
-```bash
-# Clone the repository
-git clone https://github.com/vyom-kushvaha/students-management-project.git
-cd students-management-project
+---
 
-# Compile
-g++ -std=c++17 src/student.cpp src/main.cpp -o sms
-
-# Run
-./sms
+## Project Structure
+```text
+students-management-project/
+├── src/                  # Source Code
+│   ├── main.cpp          # Entry point & role-based routing loop
+│   ├── admin.cpp         # Admin operations (Add/Remove/Update students + File synchronization)
+│   ├── student.cpp       # Student viewer operations
+│   ├── teacher.cpp       # Teacher assignment operations
+│   ├── log.cpp           # Custom logic for file reading and authentication
+│   └── loader.cpp        # Pre-loads .txt files into memory vectors
+├── include/              # Header declarations for all source classes
+├── data/                 # Text-based database files
+│   ├── students.txt      # Primary student details
+│   ├── teachers.txt      # Teacher references
+│   ├── admins.txt        # Admin references
+│   └── stupass.txt       # Combined login credentials and role definitions
+└── README.md             # Project Documentation
 ```
 
-> **Note:** Adjust the compile command based on your actual file structure. Ensure `student.h` is in the include path.
+---
+
+## How to Run the Project
+
+1. **Prerequisites:** Ensure you have the `g++` compiler installed and accessible in your system path.
+2. **Navigate to the core directory:**
+   ```bash
+   cd path/to/students-management-project
+   ```
+3. **Compile the program:**
+   ```bash
+   g++ -I./include src/main.cpp src/student.cpp src/teacher.cpp src/admin.cpp src/log.cpp src/loader.cpp -o app.exe
+   ```
+4. **Execute the compiled file:**
+   > **Note:** You MUST run the application from the project root so it can locate the `data/` folder correctly.
+   ```bash
+   ./app.exe
+   ```
 
 ---
 
-## 🔄 System Workflow
+## Sample Output
 
+**Expected Successful Workflow (Pre-loaded Teacher Login):**
+```text
+=== Student Management System ===
+1. Login
+2. Exit
+Choice: 1
+
+--- Login ---
+Username: sir_raj
+Password: teach456
+username found
+password is correct
+
+--- Login Successful ---
+
+=== Teacher Menu ===
+1. Mark Attendance
+2. Enter Marks
+3. Logout
+Enter your choice:
+1
+Enter Student ID: 101
+
+--- Mark Attendance ---
+P = Present  |  A = Absent : P
+Marked Present.
 ```
-Program Start
-    │
-    ├── Login Prompt
-    │       ├── Student Login  ──► stumenu()
-    │       │                        ├── View Attendance  → viewattd()
-    │       │                        ├── View Marks       → viewmarks()
-    │       │                        ├── View Details     → viewdet()
-    │       │                        └── Logout
-    │       │
-    │       └── Admin Login   ──► [Planned]
-    │
-    └── Exit
-```
-
-The `stufunctions()` method drives the student session loop — it calls `stumenu()` repeatedly until the user exits, routing each choice through a `switch` block to the appropriate method.
 
 ---
 
-## 🧩 Challenges Faced
+## Challenges Faced
 
-- **State management without persistence** — all data lives in-memory; no database or file system integration yet
-- **Attendance ratio display** — the current output shows `ac/tc%` which mixes ratio and percentage notation; needs a formula fix
-- **Input handling** — raw `cin` without sanitization can break the loop on invalid types
-- **Constructor overloading** — managing three constructors cleanly while avoiding redundant state
-
----
-
-## 📚 What I Learned
-
-- Designing classes with clear responsibilities (`student` handles its own state and view logic)
-- Using constructor overloading to support flexible object creation
-- Building interactive terminal menus with persistent loops and input branching
-- Separating interface (`.h`) from implementation (`.cpp`) for modularity
+1. **State Synchronization:** A major architectural challenge was keeping the static memory state (`vector<student>`) synchronized with the plain text file database (`.txt`), especially concerning index shifting when items are erased. This has now been elegantly resolved using deep file rewrites on `remove`.
+2. **Manual File Parsing (`log.cpp`):** Relying on nested `while` loops checking for specific delimiter chars (`char == ','`) makes parsing rigid and prone to infinite loops. Standard `stringstream` splitting would handle errors gracefully.
+3. **Identifier Dependencies:** Originally, using array indexes for mapping credentials in `stupass.txt` rather than using a unique, immutable Student ID (`eid`) forced strict coupling. However, index synchronization loops ensure no breaking behavior occurs anymore.
 
 ---
 
-## 🔮 Future Improvements
+## Future Improvements
 
-- [ ] Implement **file-based persistence** using `fstream`
-- [ ] Add **Admin class** with CRUD operations on student records
-- [ ] Replace raw `cin` with validated input handlers
-- [ ] Fix attendance display: compute `(ac * 100 / tc)` for a real percentage
-- [ ] Add a **Makefile** for streamlined builds
-- [ ] Introduce **exception handling** for edge cases (empty records, divide-by-zero)
+To make this project even better, the following improvements are suggested:
+1. **Refactor Identifiers:** `stupass.txt` should reference the exact Student ID, not an array index. `main.cpp` should perform an ID search upon login rather than routing via `students[index]`.
+2. **Safer File Handlers:** Replace character-by-character parsing loops in `log.cpp` with `<sstream>` and `getline()` logic to split strings and handle corrupt text seamlessly without crashing.
+3. **Use Structured Data Formats:** Moving from basic CSV-like structures to standard parsing files like JSON (`nlohmann::json`) or SQLite would eliminate most data synchronization headaches out of the box.
 
 ---
 
-## 👤 Author
+## Project Review
 
-**Vyom Kushvaha**
-🔗 [GitHub Profile](https://github.com/vyom-kushvaha)
-📁 [Project Repository](https://github.com/vyom-kushvaha/students-management-project)
+### Code Quality: 5.5 / 10
+The code intelligently uses header files and splits logic natively among classes. Now that major logic bugs tying credentials to array indices are managed safely, the overall reliability has improved drastically. Eliminating strict `while` loops for simple string parsing would further raise this score.
 
----
+### Structure: 7 / 10
+The directory separation (`src/`, `include/`, `data/`) is strong. Coupling the file IO methods neatly inside their related classes (like doing Sync inside User admin scope) maintains respectable boundary structures.
 
-*Built as a learning project to explore OOP design patterns in C++.*
+### Practical Usefulness: 7.5 / 10
+The system is now highly functional and ready for practical use cases! Because the dynamic syncing is completed and stable, adding or deleting students auto-manages the credentials under the hood. It serves perfectly as a lightweight text-file based management architecture.

@@ -63,9 +63,9 @@ void admin::adminfunctions(vector<student>& students)
 }
 
 void admin::addstudent(vector<student>& students){
-    int k = students.size() +1 ;
+    int k = students.size();
     int eid,eac=0,etc=0,emarks=0;
-    string ename;
+    string ename, euser, epass;
     
     cout<<"\n--- Add Student ---"<<endl;
     cout<<"Name: ";
@@ -73,6 +73,10 @@ void admin::addstudent(vector<student>& students){
     getline(cin, ename);
     cout<<"ID: ";
     cin>>eid;
+    cout<<"Username: ";
+    cin>>euser;
+    cout<<"Password: ";
+    cin>>epass;
     int i;
     students.push_back(student(k,eid,ename,eac,etc,emarks));
     ofstream  fwrite("data/students.txt");
@@ -92,6 +96,14 @@ void admin::addstudent(vector<student>& students){
 
               fwrite.close();
             }
+            
+    // write to stupass.txt
+    ofstream passwrite("data/stupass.txt", ios::app);
+    if(passwrite.is_open())
+    {
+        passwrite << k << "," << euser << "," << epass << ",student\n";
+        passwrite.close();
+    }
 }
 void admin::removestudent(vector<student>& students){
     int index=searchstudent(students);
@@ -122,6 +134,68 @@ void admin::removestudent(vector<student>& students){
 
               fwrite.close();
             }
+            
+            // Rewrite stupass.txt to update indexes and delete credentials
+            ifstream fread("data/stupass.txt");
+            vector<string> passLines;
+            string pline;
+            while(getline(fread, pline)) {
+                string fusername = "";
+                string fpassword = "";
+                string fcatagorie = "";
+                string sid = "";
+                int pos = 0;
+                
+                // id extract
+                while(pos < pline.size() && pline[pos] != ',') {
+                    sid += pline[pos];
+                    pos++;
+                }
+                int fidx = stoi(sid);
+                pos++;
+                
+                // username extract
+                while(pos < pline.size() && pline[pos] != ',') {
+                    fusername += pline[pos];
+                    pos++;
+                }
+                pos++;
+                
+                // password extract
+                while(pos < pline.size() && pline[pos] != ',') {
+                    fpassword += pline[pos];
+                    pos++;
+                }
+                pos++;
+                
+                // category extract
+                while(pos < pline.size() && pline[pos] != '\n' && pline[pos] != '\0') {
+                    fcatagorie += pline[pos];
+                    pos++;
+                }
+                
+                if(fcatagorie == "student") {
+                    if(fidx == index) {
+                        continue; // discard deleted student
+                    } else if(fidx > index) {
+                        fidx--; // shift index downwards
+                    }
+                }
+                
+                // format properly
+                string newLine = to_string(fidx) + "," + fusername + "," + fpassword + "," + fcatagorie;
+                passLines.push_back(newLine);
+            }
+            fread.close();
+
+            ofstream fpwrite("data/stupass.txt");
+            if(fpwrite.is_open()) {
+                for(int j=0; j<passLines.size(); j++) {
+                    fpwrite << passLines[j] << "\n";
+                }
+                fpwrite.close();
+            }
+            
             students.clear();
             loader ::loadstudents(students);
         }
