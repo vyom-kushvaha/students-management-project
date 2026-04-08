@@ -101,12 +101,11 @@ g++ -I./include src/main.cpp src/student.cpp src/teacher.cpp src/admin.cpp src/l
 
 ## 🖥️ Sample Output
 
-📌 
+![Student Output](student.png)
 
-* Login screen
-* Student menu
-* Teacher actions
-* Admin operations
+![Teacher Output](teacher.png)
+
+![Admin Output](admin.png)
 
 ---
 

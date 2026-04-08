@@ -101,7 +101,7 @@ void admin::addstudent(vector<student>& students){
     ofstream passwrite("data/stupass.txt", ios::app);
     if(passwrite.is_open())
     {
-        passwrite << k << "," << euser << "," << epass << ",student\n";
+        passwrite <<"\n"<< k << "," << euser << "," << epass << ",student\n";
         passwrite.close();
     }
 }
