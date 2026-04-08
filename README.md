@@ -8,7 +8,7 @@
 
 ## 📌 Description
 
-This is a **console-based Student Management System** built in C++ as a **learning project** to practice Object-Oriented Programming, file handling, and basic system design.
+This is a **console-based Student Management System** built in C++ as a **learning project** to learn OOP, file handling, and how system work.
 
 The project focuses on simulating a simple academic system with role-based access:
 
@@ -16,7 +16,7 @@ The project focuses on simulating a simple academic system with role-based acces
 * Teacher
 * Admin
 
-> ⚠️ This is my **first project**, so it is not perfect. Some features are implemented, some are partially working, and some are planned for future improvement.
+> ⚠️ This is my **first project**, so it is not perfect. Some features are implemented and some are planned for future improvement.
 
 ---
 
@@ -106,7 +106,7 @@ g++ -I./include src/main.cpp src/student.cpp src/teacher.cpp src/admin.cpp src/l
 </p>
 
 <p align="center">
-  <img src="./teacherOutput.png" alt="Teacher Output" width="80%">
+  <img src="./teacherOutput.png" alt="Teacher Output" width="60%">
 </p>
 
 <p align="center">
