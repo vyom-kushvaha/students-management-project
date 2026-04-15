@@ -8,7 +8,7 @@
 
 ## 📌 Description
 
-This is a **console-based Student Management System** built in C++ as a **learning project** to learn OOP, file handling, and how system work.
+This is a **console-based Student Management System** built in C++ as a **learning project** to learn OOP, file handling, and how system work..
 
 The project focuses on simulating a simple academic system with role-based access:
 
