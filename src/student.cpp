@@ -140,32 +140,32 @@ void student::enterMarks(vector<student> &students)
     }
 }
 
-inline int student::getid()
+int student::getid()
 {
 
     return id;
 }
-inline int student::getac()
+int student::getac()
 {
     return ac;
 }
-inline int student::getmarks()
+int student::getmarks()
 {
     return marks;
 }
-inline int student::gettc()
+int student::gettc()
 {
     return tc;
 }
-inline string student::getname()
+string student::getname()
 {
     return name;
 }
-inline void student::setname(string newname)
+void student::setname(string newname)
 {
     name = newname;
 }
-inline void student::setmarks(int newmarks)
+void student::setmarks(int newmarks)
 {
     marks = newmarks;
 }
