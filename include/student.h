@@ -20,13 +20,13 @@ public:
     void markPresent(vector<student> &students);
     void markAbsent(vector<student> &students);
     void enterMarks(vector<student> &students);
-    inline int getid();
-    inline int getac();
-    inline int gettc();
-    inline int getmarks();
-    inline string getname();
-    inline void setname(string newname);
-    inline void setmarks(int newmarks);
+    int getid();
+    int getac();
+    int gettc();
+    int getmarks();
+    string getname();
+    void setname(string newname);
+    void setmarks(int newmarks);
 
     student(int id, string name);
     student();
